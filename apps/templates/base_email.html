@@ -1,0 +1,22 @@
+{% load i18n %}
+{% load static %}
+
+<!doctype html>
+<html>
+
+<head>
+    <title>{% block email_head %}{% endblock email_head %}</title>
+</head>
+
+<body>
+{% block email_content %}{% endblock email_content %}
+
+{% block email_signature %}
+    <p>{% trans "Sincerely," %}</p>
+    {{ site.name }} 
+    {% comment %} <p><img src="{{ site.domain }}{% static 'images' %}/site-logo.png" alt="Site Logo"></p> {% endcomment %}
+{% endblock email_signature %}
+
+</body>
+
+</html>

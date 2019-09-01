@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags %}
+
+{% block body_class %}standard-page{% endblock %}
+
+{% block content %}
+
+<div class="content-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-10">
+                <h1 class="page-title">{{ page.title }}</h1>
+                
+                {{ page.body|richtext }}
+                <form action="{% pageurl page %}" method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+    {{ block.super }}
+    <script>
+        $(function() {
+            $('.rich-text p').each(function() {
+                var html = $(this).html();
+                console.log(html);
+                $(this).html(html.replace('{route}', '<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2904.366656232631!2d5.225861532855098!3d52.25661448568594!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x99a0c0ed9bd788cc!2sGooise+Academie+voor+Beeldende+Kunsten!5e0!3m2!1snl!2snl!4v1535103689208" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>'));
+            });
+        })
+
+    </script>
+{% endblock extra_js %}

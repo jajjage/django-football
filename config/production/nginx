@@ -1,0 +1,56 @@
+server {
+    listen [::]:443;
+    server_name templateproject.nl;
+
+    ssl_certificate /etc/letsencrypt/live/templateproject.nl/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/templateproject.nl/privkey.pem;
+
+    access_log   /var/log/nginx/templateproject_access.log;
+    error_log    /var/log/nginx/templateproject_error.log debug;
+    client_max_body_size 50m;
+
+    set $folder projects;
+    set $project templateproject;
+    include /home/django/projects/templateproject/config/default.conf;
+
+    expires 1y;
+    log_not_found off;
+    gzip on;
+    gzip_min_length 100;
+    gzip_comp_level 4;
+    gzip_types text/plain text/css text/xml text/javascript application/x-javascript application/xml application/javascript;
+    gzip_vary on;
+
+    location /.well-known/acme-challenge {
+        root /var/www/letsencrypt;
+        default_type text/plain;
+    }
+
+    location / {
+        include /etc/nginx/wsgi.conf;
+    }   
+}
+
+server {
+    listen [::]:443;
+    server_name www.templateproject.nl;
+    server_name templateproject.alpha.go2people.nl;
+    ssl_certificate /etc/letsencrypt/live/templateproject.nl/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/templateproject.nl/privkey.pem;
+
+    rewrite ^(.*)$ https://templateproject.nl$1 permanent;
+}
+
+server {
+    listen [::]:80;
+    server_name templateproject.nl;
+    server_name www.templateproject.nl;
+    server_name templateproject.alpha.go2people.nl;
+
+    location /.well-known/acme-challenge {
+        root /var/www/letsencrypt;
+        default_type text/plain;
+    }
+
+    rewrite ^(.*)$ https://templateproject.nl$1 permanent;
+}

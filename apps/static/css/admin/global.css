@@ -1,0 +1,51 @@
+.condensed-inline-panel:not(.condensed-inline-panel--orderable) .condensed-inline-panel__add-button {
+    visibility: visible !important;
+}
+
+.condensed-inline-panel {
+    padding-top: 50px;
+    padding-bottom: 15px;
+}
+.condensed-inline-panel__add-button {
+    font-size: 18px;
+}
+
+.c-wagtailautocomplete__selection {
+    background-color: #3abb2a !important;
+}
+
+.errors {
+    background-color: #cd3238 !important;
+    border-top: .3em solid #cd3238 !important;
+}
+.errors.active {
+    background-color: white !important;
+}
+.errors:hover {
+    border-top-color: #246060 !important;
+}
+
+.draftail_rich_text_area .input {
+    border: 1px solid #e6e6e6;
+    background-color: #fafafa;
+    border-radius: 5px;
+}
+.DraftEditor-root {
+    padding-left: 5px;
+}
+
+table.listing {
+    color: #4e4e4e;
+}
+
+body .object>h2 label:before, body .object>h2:before {
+    content: "U";
+}
+
+.newline {
+    clear: left;
+}
+
+.field-teacherlist {
+    width: 350px;
+}

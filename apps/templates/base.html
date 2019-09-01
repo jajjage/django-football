@@ -1,0 +1,40 @@
+{% load static %}
+{% load wagtailuserbar %}
+
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8" />
+        <title>
+            {%  block title %}
+            {%  endblock title %}
+        </title>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        
+        {% block extra_css %}{# Override this in templates to add extra stylesheets #}{% endblock extra_css %}
+    </head>
+
+
+    <body class="{% block body_class %}{%  endblock %}">
+
+        <main>
+            
+        {% block contentcontainer %}
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        {% block content %}
+                        {% endblock content %}
+                    </div>
+                </div>
+            </div>
+
+        {% endblock contentcontainer %}
+
+        </main>
+
+        {% wagtailuserbar %}
+    </body>
+</html>

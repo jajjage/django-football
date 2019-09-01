@@ -1,0 +1,8 @@
+{% load i18n %}
+{% load static %}
+{% block email_content %}{% endblock email_content %}
+
+{% block email_signature %}
+{% trans "Sincerely," %}
+{{ site.name }} 
+{% endblock email_signature %}

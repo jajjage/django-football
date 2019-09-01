@@ -1,0 +1,18 @@
+-r defaults.txt
+
+# Django
+# ------------------------------------------------------------------------------
+django-crispy-forms==1.7.2  # https://github.com/django-crispy-forms/django-crispy-forms
+
+# Wagtail
+# ------------------------------------------------------------------------------
+wagtail==2.6.1
+wagtail-condensedinlinepanel==0.5.2
+wagtailmenus==2.13.1
+wagtail-autocomplete==0.4
+
+# Thumbnails for advertisement images
+sorl-thumbnail==12.5.0  # https://github.com/jazzband/sorl-thumbnail
+
+# Django Registration Redux
+django-registration-redux==2.6  # https://django-registration-redux.readthedocs.io/en/latest/
