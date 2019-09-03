@@ -18,6 +18,7 @@ SITE_ID = 1
 INSTALLED_APPS += [
     "core",
     "users",
+    "matches",
 ]
 
 WEBSITE_EMAIL = DEFAULT_FROM_EMAIL

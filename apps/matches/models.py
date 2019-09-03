@@ -14,8 +14,8 @@ class Match(TimeStampedModel):
     home = models.BooleanField(
         verbose_name=_("home"))
     
-    @property
-    def match_title(self):
+    def __str__(self):
+        """str"""
         if self.home:
             return f"DES 1 - {self.opponent}"
         return f"{self.opponent} - DES 1"
