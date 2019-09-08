@@ -19,6 +19,8 @@ INSTALLED_APPS += [
     "core",
     "users",
     "matches",
+    "goals",
+    "players",
 ]
 
 WEBSITE_EMAIL = DEFAULT_FROM_EMAIL

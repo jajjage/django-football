@@ -2,17 +2,17 @@
 
 from wagtail.contrib.modeladmin.options import (ModelAdmin, modeladmin_register)
 
-from .models import Match
+from .models import Goal
 
 
-class MatchAdmin(ModelAdmin):
+class GoalAdmin(ModelAdmin):
     """BaseAdmin for NamedAtrributes"""
-    model = Match
+    model = Goal
     menu_icon = 'snippet'
     menu_order = 1000
     list_display = [
         "__str__",
-        "date",
-        "score",
+        "player",
+        "match",
     ]
-modeladmin_register(MatchAdmin)
+modeladmin_register(GoalAdmin)
