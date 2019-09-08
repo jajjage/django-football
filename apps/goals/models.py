@@ -10,7 +10,7 @@ from players.models import Player
 class Goal(TimeStampedModel):
     """Goal"""
 
-    match  = models.ForeignKey(
+    match = models.ForeignKey(
         Match,
         on_delete=models.PROTECT,
         related_name="goals",
