@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Topscorers" %}{% endblock title %}
+
+
+{% block content %}
+<h1>{% trans "Topscorers" %}</h1>
+
+<ul class="list-group">
+    {% for player in players %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{ forloop.counter }}. {{ player.name }}
+            <span class="badge badge-primary badge-pill">{{ player.num_goals }}</span>
+        </li>
+    {% endfor %}
+</ul>
+
+{% endblock content %}

@@ -25,8 +25,8 @@ class Match(TimeStampedModel):
     def __str__(self):
         """str"""
         if self.home:
-            return f"DES 1 - {self.opponent}"
-        return f"{self.opponent} - DES 1"
+            return f"DES 1 - {self.opponent} ({self.score})"
+        return f"{self.opponent} - DES 1 ({self.score})"
 
     @property
     def score(self):
@@ -35,5 +35,5 @@ class Match(TimeStampedModel):
         if self.opponent_goals:
             if self.home:
                 return f"{team_goals} - {self.opponent_goals}"
-            return f"{self.opponent} - {team_goals}"
+            return f"{self.opponent_goals} - {team_goals}"
         return _("no score yet")

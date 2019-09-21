@@ -22,6 +22,8 @@ urlpatterns = [
     path("account/", include("django.contrib.auth.urls")),
 
     path("", include("matches.urls", namespace='matches')),
+    path("goals/", include("goals.urls", namespace='goals')),
+
 
     # For anything not caught by a more specific rule above, hand over to
     # Wagtail's page serving mechanism. This should be the last pattern in
@@ -32,7 +34,6 @@ urlpatterns = [
     # of your site, rather than the site root:
     #    url("pages/', include(wagtail_urls)),
 ]
-
 
 if settings.DEBUG:
     # pylint: disable=C0412; ignore the ungrouped django imports
