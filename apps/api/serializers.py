@@ -15,7 +15,7 @@ class TopscorerSerializer(serializers.ModelSerializer):
 
 
 class MatchSerializer(serializers.ModelSerializer):
-    """Nested serializer for matches."""
+    """Serializer for matches."""
     goals = serializers.SerializerMethodField()
 
     class Meta:
@@ -24,8 +24,14 @@ class MatchSerializer(serializers.ModelSerializer):
         fields = ['date', 'score', 'title', 'goals']
 
     def get_goals(self, obj):
-        """returns all goals scored by the player in the match"""
-        return obj.goals.filter(player=self.root.instance).count()
+        """
+        Returns all goals scored in the match.
+        If used as nested serializer: filters by player in root serializer.
+        """
+        # if used as nested serializer, filter by player in root serializer.
+        if self is not self.root:  
+            return obj.goals.filter(player=self.root.instance).count()
+        return obj.goals.count()
 
 
 class PlayerSerializer(serializers.ModelSerializer):
@@ -39,4 +45,3 @@ class PlayerSerializer(serializers.ModelSerializer):
             'total_goals',
             'matches',
         ]
-
