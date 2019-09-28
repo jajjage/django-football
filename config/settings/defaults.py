@@ -353,8 +353,8 @@ DEBUG_TOOLBAR = DEBUG and env("DEBUG_TOOLBAR")
 
 if DEBUG_TOOLBAR:
     INSTALLED_APPS = ["debug_toolbar"] + INSTALLED_APPS
-    MIDDLEWARE += ["debug_toolbar.middleware.DebugToolbarMiddleware"]
-    INTERNAL_IPS = ["localhost"]
+    MIDDLEWARE = ["debug_toolbar.middleware.DebugToolbarMiddleware"] + MIDDLEWARE
+    INTERNAL_IPS = ['127.0.0.1']
 
 
 # SENTRY ERROR REPORT

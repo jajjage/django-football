@@ -2,8 +2,10 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 from django_extensions.db.models import TimeStampedModel
+from modelcluster.models import ClusterableModel
+from wagtail.admin.edit_handlers import FieldPanel, InlinePanel
 
-class Match(TimeStampedModel):
+class Match(ClusterableModel, TimeStampedModel):
     """Match"""
 
     opponent = models.CharField(
@@ -25,8 +27,8 @@ class Match(TimeStampedModel):
     def __str__(self):
         """str"""
         if self.home:
-            return f"DES 1 - {self.opponent} ({self.score})"
-        return f"{self.opponent} - DES 1 ({self.score})"
+            return f"DES 1 - {self.opponent}"
+        return f"{self.opponent} - DES 1"
 
     @property
     def score(self):
@@ -37,3 +39,11 @@ class Match(TimeStampedModel):
                 return f"{team_goals} - {self.opponent_goals}"
             return f"{self.opponent_goals} - {team_goals}"
         return _("no score yet")
+
+    panels = [
+        FieldPanel("opponent"),
+        FieldPanel("date"),
+        FieldPanel("home"),
+        FieldPanel("opponent_goals"),
+        InlinePanel("goals", label=_("goals")),
+    ]

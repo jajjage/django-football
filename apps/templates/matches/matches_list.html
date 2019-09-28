@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}Wedstrijden{% endblock title %}
+
+{% block content %}
+    <h1>Wedstrijden</h1>
+    
+    <div class="list-group">
+        {% for match in matches %}
+            <a href="{% url "matches:match-detail" pk=match.id %}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                {{ match }}
+                <span class="badge badge-primary badge-pill">{{ match.score }}</span>
+            </a>
+        {% endfor %}
+    </div>
+    
+{% endblock %}

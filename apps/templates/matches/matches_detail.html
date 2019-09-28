@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Match" %}{% endblock title %}
+
+{% block content %}
+    <h1>{{ object }}</h1>
+    <br>
+    <p><strong>{% trans "Goals" %}:</strong></p>
+
+    {% for goal in goals %}
+        <p>{{ goal.player.name }}</p>
+    {% endfor %}
+    
+{% endblock %}

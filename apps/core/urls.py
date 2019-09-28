@@ -43,6 +43,6 @@ if settings.DEBUG:
 
     # Serve static and media files from development server
     urlpatterns = [path('__debug__/', include(debug_toolbar.urls))] + urlpatterns
-    urlpatterns = staticfiles_urlpatterns() + urlpatterns
-    urlpatterns = static(
-        settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + urlpatterns
+    # urlpatterns = staticfiles_urlpatterns() + urlpatterns
+    # urlpatterns = static(
+    #     settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + urlpatterns

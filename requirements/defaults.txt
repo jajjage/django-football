@@ -15,8 +15,8 @@ django-rosetta==0.9.3  # https://github.com/mbi/django-rosetta
 
 # Error reporting
 # ------------------------------------------------------------------------------
-sentry-sdk==0.11.2
+sentry-sdk==0.12.2  # https://github.com/getsentry/sentry-python
 
 # Postmarker transactional emails
 # ------------------------------------------------------------------------------
-postmarker==0.13.0
+postmarker==0.13.0  # https://github.com/Stranger6667/postmarker
