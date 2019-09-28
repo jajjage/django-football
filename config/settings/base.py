@@ -115,3 +115,9 @@ INSTALLED_APPS = ['registration'] + INSTALLED_APPS
 INCLUDE_AUTH_URLS = False
 INCLUDE_REGISTER_URL = False # using custom View
 REGISTRATION_ADMINS = ADMINS
+
+# DJANGO REST FRAMEWORK
+# ------------------------------------------------------------------------------
+# https://www.django-rest-framework.org
+
+INSTALLED_APPS += ['rest_framework']

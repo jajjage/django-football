@@ -5,6 +5,9 @@ from django_extensions.db.models import TimeStampedModel
 from modelcluster.models import ClusterableModel
 from wagtail.admin.edit_handlers import FieldPanel, InlinePanel
 
+from players.models import Player
+
+
 class Match(ClusterableModel, TimeStampedModel):
     """Match"""
 
@@ -18,7 +21,11 @@ class Match(ClusterableModel, TimeStampedModel):
     opponent_goals = models.PositiveIntegerField(
         verbose_name=_("opponent goals"),
         null=True)
-
+    players = models.ManyToManyField(
+        Player,
+        related_name="matches",
+        verbose_name=_("players"),
+    )
     class Meta:
         "meta"
         verbose_name = _("Match")
@@ -31,13 +38,20 @@ class Match(ClusterableModel, TimeStampedModel):
         return f"{self.opponent} - DES 1"
 
     @property
+    def title(self):
+        return self.__str__()
+    
+    @property
+    def team_goals(self):
+        return self.goals.count()
+
+    @property
     def score(self):
         """str"""
-        team_goals = self.goals.count()
         if self.opponent_goals:
             if self.home:
-                return f"{team_goals} - {self.opponent_goals}"
-            return f"{self.opponent_goals} - {team_goals}"
+                return f"{self.team_goals} - {self.opponent_goals}"
+            return f"{self.opponent_goals} - {self.team_goals}"
         return _("no score yet")
 
     panels = [
@@ -46,4 +60,5 @@ class Match(ClusterableModel, TimeStampedModel):
         FieldPanel("home"),
         FieldPanel("opponent_goals"),
         InlinePanel("goals", label=_("goals")),
+        FieldPanel("players"),
     ]

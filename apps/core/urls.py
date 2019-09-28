@@ -23,6 +23,7 @@ urlpatterns = [
 
     path("", include("matches.urls", namespace='matches')),
     path("goals/", include("goals.urls", namespace='goals')),
+    path("api/", include("api.urls", namespace='api')),
 
 
     # For anything not caught by a more specific rule above, hand over to

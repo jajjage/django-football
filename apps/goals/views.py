@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.db.models import Count
 
-from core.views import BaseView
+from rest_framework import generics
 
+from core.views import BaseView
 from .models import Goal
 from players.models import Player
 
