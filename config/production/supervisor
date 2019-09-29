@@ -1,8 +1,7 @@
-[program:templateproject]
-directory=/home/django/projects/templateproject/
-command=/var/virtualenvs/templateproject/bin/gunicorn --timeout 180 -k gevent -w 1 -b unix:/run/gunicorn/templateproject.sock config.wsgi:application
+[program:project]
+command=/home/django/project/config/production/gunicorn
 user=django
-umask=022
-autostart=True
-autorestart=True
-redirect_stderr=True
+autostart=true
+autorestart=true
+redirect_stderr=true
+stdout_logfile=/home/django/logs/gunicorn.log
