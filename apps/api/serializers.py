@@ -4,13 +4,15 @@ from matches.models import Match
 from goals.models import Goal
 
 class TopscorerSerializer(serializers.ModelSerializer):
-    goals_count = serializers.ReadOnlyField()
-    
+    total_goals = serializers.ReadOnlyField()
+
     class Meta:
+        """meta"""
         model = Player
         fields = [
+            'pk',
             'name',
-            'goals_count',
+            'total_goals',
         ]
 
 
@@ -39,6 +41,7 @@ class PlayerSerializer(serializers.ModelSerializer):
     matches = MatchSerializer(many=True, read_only=True)
 
     class Meta:
+        """meta"""
         model = Player
         fields = [
             'name',
