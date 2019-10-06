@@ -10,11 +10,6 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 from .defaults import *
 
-# CONTEXT
-PROJECT_NAME = env('PROJECT_NAME')
-PROJECT_URL = env('DOMAIN')
-
-SITE_ID = 1
 INSTALLED_APPS += [
     "blog",
     "core",
@@ -23,19 +18,6 @@ INSTALLED_APPS += [
     "goals",
     "players",
 ]
-
-WEBSITE_EMAIL = DEFAULT_FROM_EMAIL
-ADMIN_URL = 'admin/'
-
-# Base URL to use when referring to full URLs within the Wagtail admin backend -
-# e.g. in notification emails. Don't include '/admin' or a trailing slash
-BASE_URL = 'https://%s.nl' % env('DOMAIN')
-DEFAULT_FROM_EMAIL = 'no-reply@{}.nl'.format(env('DOMAIN'))
-
-LOGIN_URL = '/account/login/'
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_URL = '/account/logout/'
-LOGOUT_REDIRECT_URL = '/'
 
 TEMPLATES[0]['OPTIONS']['context_processors'] += [
     'core.context_processors.project',
@@ -90,7 +72,6 @@ WAGTAILIMAGES_FEATURE_DETECTION_ENABLED = True
 TEMPLATES[0]['OPTIONS']['context_processors'].append('wagtailmenus.context_processors.wagtailmenus')
 TEMPLATES[0]['OPTIONS']['context_processors'].append('wagtail.contrib.settings.context_processors.settings')
 
-
 # CRISPY FORMS
 # ------------------------------------------------------------------------------
 # https://django-crispy-forms.readthedocs.io/en/latest/install.html#template-packs
@@ -98,13 +79,6 @@ TEMPLATES[0]['OPTIONS']['context_processors'].append('wagtail.contrib.settings.c
 INSTALLED_APPS = ['crispy_forms'] + INSTALLED_APPS
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 CRISPY_FAIL_SILENTLY = not DEBUG
-
-# SORL-THUMBNAIL
-# ------------------------------------------------------------------------------
-# https://github.com/jazzband/sorl-thumbnail
-
-INSTALLED_APPS += ['sorl.thumbnail']
-THUMBNAIL_PRESERVE_FORMAT = True
 
 # DJANGO-REGISTRATION-REDUX
 # ------------------------------------------------------------------------------
