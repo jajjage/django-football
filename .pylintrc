@@ -4,10 +4,21 @@ load-plugins=pylint_django
 ignore=migrations,settings
 
 [MESSAGES CONTROL]
-disable=too-many-ancestors,fixme
+disable=
+    too-many-ancestors,
+    fixme,
+    # SKIP SOME REPORTS
+    R0901,
+    R0903,
+    RP0001,
+    RP0002,
+    RP0003,
+    RP0101,
+    RP0401,
+    RP0701,
+    RP0801
 
 [BASIC]
-
 good-names=UserModel
 
 [TYPECHECK]
@@ -16,8 +27,7 @@ ignored-classes=__proxy__
 # __proxy__: ignores translation strings
 
 [REPORTS]
-
-msg-template={symbol}:{line:3d},{column:2d}: {obj}: {msg}
+msg-template={path}: {symbol}
 output-format=colorized
 reports=yes
 
