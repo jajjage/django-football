@@ -1,8 +1,6 @@
 from .base import *
 
-ALLOWED_HOSTS = [
-    "test.go2people.nl"
-]
+ALLOWED_HOSTS = ['*']
 
 SECURE_SSL_REDIRECT = False
 SESSION_COOKIE_SECURE = False
