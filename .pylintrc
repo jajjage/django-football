@@ -8,22 +8,19 @@ disable=too-many-ancestors,fixme
 
 [BASIC]
 
-good-names=env,application,app_name,_,urlpatterns,register,UserModel,pk,qs
-
-# Regular expression matching correct function names
-#function-rgx=(([a-z][a-z0-9_]{2,50})|(_[a-z0-9_]*))$
+good-names=UserModel
 
 [TYPECHECK]
 
-#generated-members=all,as_view,id,DoesNotExist,MultipleObjectsReturned,_meta,objects,prefetch_related,select_related,SUCCESS
-#ignored-classes=optparse.Values,thread._local,_thread._local,Meta,ForeignKey,HTTPError,__proxy__,ManyToManyField
-#ignored-argument-names=arg|args|kwargs|sender|created
+ignored-classes=__proxy__
+# __proxy__: ignores translation strings
+
 [REPORTS]
 
 msg-template={symbol}:{line:3d},{column:2d}: {obj}: {msg}
 output-format=colorized
-reports=no
+reports=yes
 
 [CLASSES]
 
-exclude-protected=_meta
+# exclude-protected=_meta

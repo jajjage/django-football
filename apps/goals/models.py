@@ -24,12 +24,9 @@ class Goal(TimeStampedModel, Orderable):
         verbose_name=_("player"))
 
     def __str__(self):
-        """str"""
-        # pylint: disable=no-member
         return _("Goal by {} during {}").format(self.player, self.match)
 
     class Meta:
-        "meta"
         verbose_name = _("Goal")
         verbose_name_plural = _("Goals")
-        ordering = ["sort_order"]
+        ordering = ["match"]
