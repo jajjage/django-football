@@ -12,8 +12,6 @@ from players.models import Player
 
 class Goal(TimeStampedModel, Orderable):
     """Goal"""
-
-
     match = ParentalKey(
         Match,
         on_delete=models.PROTECT,

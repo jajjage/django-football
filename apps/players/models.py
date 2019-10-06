@@ -1,9 +1,9 @@
+"""models"""
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth import get_user_model
 
 from django_extensions.db.models import TimeStampedModel
-from modelcluster.fields import ParentalManyToManyField
 
 UserModel = get_user_model()
 
@@ -22,7 +22,6 @@ class Player(TimeStampedModel):
         null=True)
 
     def __str__(self):
-        """str"""
         return self.name
 
     @property

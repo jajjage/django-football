@@ -21,4 +21,3 @@ class BaseView(View):
         """retrieve context and render template"""
         context = self.get_context()
         return render(request, self.template_name, context)
-

@@ -1,6 +1,5 @@
 """Command-line utility for administrative tasks."""
 
-# pylint: disable=W0611
 import sys
 import os
 import environ

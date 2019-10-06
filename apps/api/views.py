@@ -1,10 +1,11 @@
+"""views"""
 from django.db.models import Count
 
 from rest_framework import generics
 
-from . import serializers
 from players.models import Player
 from matches.models import Match
+from . import serializers
 
 
 class TopscorerList(generics.ListAPIView):

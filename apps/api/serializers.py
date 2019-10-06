@@ -1,9 +1,11 @@
+"""serializers"""
 from rest_framework import serializers
 from players.models import Player
 from matches.models import Match
-from goals.models import Goal
+
 
 class TopscorerSerializer(serializers.ModelSerializer):
+    """Serializer for topscorers' list."""
     total_goals = serializers.ReadOnlyField()
 
     class Meta:
@@ -31,7 +33,7 @@ class MatchSerializer(serializers.ModelSerializer):
         If used as nested serializer: filters by player in root serializer.
         """
         # if used as nested serializer, filter by player in root serializer.
-        if self is not self.root:  
+        if self is not self.root:
             return obj.goals.filter(player=self.root.instance).count()
         return obj.goals.count()
 

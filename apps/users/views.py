@@ -1,7 +1,7 @@
 """views"""
 from django.contrib.auth.views import PasswordResetView
 
-from core.constants import EMAIL_CONTEXT
+from core.constants import SITE_CONTEXT
 
 
 class PasswordResetHtmlView(PasswordResetView):
@@ -9,4 +9,4 @@ class PasswordResetHtmlView(PasswordResetView):
 
     html_email_template_name = "registration/password_reset_email.html"
     email_template_name = "registration/password_reset_email.txt"
-    extra_context = EMAIL_CONTEXT
+    extra_context = SITE_CONTEXT

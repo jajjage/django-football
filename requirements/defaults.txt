@@ -9,14 +9,10 @@ pipdeptree==0.13.2  # https://github.com/naiquevin/pipdeptree
 # ------------------------------------------------------------------------------
 Django==2.2.*
 django-environ==0.4.5  # https://github.com/joke2k/django-environ
-django-extensions==2.2.1  # https://github.com/django-extensions/django-extensions
+django-extensions==2.2.3  # https://github.com/django-extensions/django-extensions
 django-debug-toolbar==2.0  # https://github.com/jazzband/django-debug-toolbar
 django-rosetta==0.9.3  # https://github.com/mbi/django-rosetta
 
 # Error reporting
 # ------------------------------------------------------------------------------
-sentry-sdk==0.12.2  # https://github.com/getsentry/sentry-python
-
-# Postmarker transactional emails
-# ------------------------------------------------------------------------------
-postmarker==0.13.0  # https://github.com/Stranger6667/postmarker
+sentry-sdk==0.12.3  # https://github.com/getsentry/sentry-python

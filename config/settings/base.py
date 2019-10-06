@@ -16,6 +16,7 @@ PROJECT_URL = env('DOMAIN')
 
 SITE_ID = 1
 INSTALLED_APPS += [
+    "blog",
     "core",
     "users",
     "matches",

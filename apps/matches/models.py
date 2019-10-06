@@ -1,3 +1,4 @@
+"""models"""
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
@@ -9,7 +10,7 @@ from players.models import Player
 
 
 class Match(ClusterableModel, TimeStampedModel):
-    """Match"""
+    """A match between two teams."""
 
     opponent = models.CharField(
         verbose_name=_("opponent"),
@@ -27,27 +28,28 @@ class Match(ClusterableModel, TimeStampedModel):
         verbose_name=_("players"),
     )
     class Meta:
-        "meta"
         verbose_name = _("Match")
         verbose_name_plural = _("Matches")
 
     def __str__(self):
-        """str"""
         if self.home:
             return f"DES 1 - {self.opponent}"
         return f"{self.opponent} - DES 1"
 
     @property
     def title(self):
+        """Returns title"""
+        # TODO: remove
         return self.__str__()
-    
+
     @property
     def team_goals(self):
+        """Returns number of goals scored by own team."""
         return self.goals.count()
 
     @property
     def score(self):
-        """str"""
+        """Returns match score."""
         if self.opponent_goals:
             if self.home:
                 return f"{self.team_goals} - {self.opponent_goals}"

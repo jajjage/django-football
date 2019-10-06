@@ -1,11 +1,9 @@
-from django.shortcuts import render
+"""views"""
 from django.db.models import Count
 
-from rest_framework import generics
-
 from core.views import BaseView
-from .models import Goal
 from players.models import Player
+
 
 class TopscorersView(BaseView):
     """view for listing matches"""
@@ -15,6 +13,6 @@ class TopscorersView(BaseView):
         """context"""
         return {
             "players": Player.objects.all()
-                .annotate(num_goals=Count('goals'))
-                .order_by("-num_goals")
+                       .annotate(num_goals=Count('goals'))
+                       .order_by("-num_goals")
         }

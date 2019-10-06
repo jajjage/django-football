@@ -1,4 +1,4 @@
-"""Core models for Wagtail"""
+"""wagtail page models"""
 
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
@@ -14,9 +14,7 @@ from wagtail.admin.edit_handlers import TabbedInterface, ObjectList
 
 
 class StandardPage(Page):
-    """
-    A generic content page.
-    """
+    """A generic content page."""
     show_in_menus_default = True
 
     class Meta:
@@ -51,10 +49,7 @@ class StandardPage(Page):
 
 
 class FormField(AbstractFormField):
-    """
-    Form field
-    TODO: improve description
-    """
+    """Form field, used by contactpages"""
     page = ParentalKey(
         'ContactPage', on_delete=models.CASCADE, related_name='form_fields')
 
@@ -116,4 +111,3 @@ class ContactPage(AbstractEmailForm):
 
 class HomePage(Page):
     """Custom page for homepage"""
-    pass

@@ -107,21 +107,12 @@ if env("EMAIL_TYPE") == "mailhog":
     EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
     EMAIL_PORT = 1025
     EMAIL_HOST = "localhost"
-elif env("EMAIL_TYPE") == "smtp":
-    EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-elif env("EMAIL_TYPE") == "postmark":
-    EMAIL_BACKEND = 'postmarker.django.EmailBackend'
-    POSTMARK = {
-        'TOKEN': env("POSTMARK_API_KEY"),
-        'TEST_MODE': False,
-        'VERBOSITY': 0,
-    }
 else:
     EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
     EMAIL_FILE_PATH = str(ROOT_DIR.path("tmp", "emails"))
 
 DEFAULT_FROM_EMAIL = '{} <info@{}.nl>'.format(env('PROJECT_NAME'), env('EMAIL_DOMAIN'))
-EMAIL_SUBJECT_PREFIX = "[{}]".format(env("PROJECT_SLUG"))  # TODO: PREFIX?
+EMAIL_SUBJECT_PREFIX = "[{}]".format(env("PROJECT_SLUG"))
 SERVER_EMAIL = "django@go2people.nl"
 
 
@@ -130,7 +121,6 @@ SERVER_EMAIL = "django@go2people.nl"
 # https://docs.djangoproject.com/en/1.11/ref/settings/#file-uploads
 
 FILE_UPLOAD_PERMISSIONS = 0o644
-# TODO: What happens if you exceed FILE_UPLOAD_MAX_MEMORY_SIZE?
 FILE_UPLOAD_MAX_MEMORY_SIZE = 10485760  # (10 MB)
 MEDIA_ROOT = str(ROOT_DIR.path("media"))
 MEDIA_URL = "/media/"
@@ -343,7 +333,6 @@ APPEND_SLASH = True
 # https://django-extensions.readthedocs.io/en/latest/command_extensions.html
 
 INSTALLED_APPS += ["django_extensions"]
-# TODO: Check their custom Fields and Models
 
 
 # DEBUG TOOLBAR
@@ -377,6 +366,6 @@ ROSETTA_ENABLE_TRANSLATION_SUGGESTIONS = True
 AZURE_CLIENT_SECRET = env("ROSETTA_AZURE_TRANSLATION_API_KEY")
 ROSETTA_REQUIRES_AUTH = True
 ROSETTA_AUTO_COMPILE = True
-ROSETTA_WSGI_AUTO_RELOAD = False  # TODO: Off in production, but can it reload staging tho?
-ROSETTA_UWSGI_AUTO_RELOAD = False  # TODO: Off in production, but can it reload staging tho?
-ROSETTA_SHOW_AT_ADMIN_PANEL = False  # TODO: Maybe add this to wagtail?
+ROSETTA_WSGI_AUTO_RELOAD = False
+ROSETTA_UWSGI_AUTO_RELOAD = False
+ROSETTA_SHOW_AT_ADMIN_PANEL = False

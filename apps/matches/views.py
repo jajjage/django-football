@@ -1,4 +1,4 @@
-from django.shortcuts import render
+"""views"""
 from django.views.generic.detail import DetailView
 
 from core.views import BaseView
@@ -22,16 +22,9 @@ class MatchDetailView(DetailView):
     template_name = "matches/matches_detail.html"
     model = Match
 
-    def get_context(self):
-        """context"""
-        return {
-            "matches": Match.objects.all(),
-        }
-
     def get_context_data(self, **kwargs):
         """Insert the single object into the context dict."""
         context = {}
         if self.object:
             context['goals'] = self.object.goals.all().select_related("player")
-            
         return super().get_context_data(**context)

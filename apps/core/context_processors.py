@@ -1,14 +1,10 @@
 """ Context processors """
-
-from django.conf import settings
-from wagtail.core.models import Site
+from .constants import SITE_CONTEXT
 
 
 def project(request):
-    """ Puts the footer text in every context because it's variable. """
+    """Adds site/project specific context to templates"""
 
-    context = {
-        "project_name": settings.PROJECT_NAME,
-        "project_url": settings.PROJECT_URL,
-    }
+    context = SITE_CONTEXT
+
     return context
