@@ -27,7 +27,6 @@ ignored-classes=__proxy__
 # __proxy__: ignores translation strings
 
 [REPORTS]
-msg-template={path}: {symbol}
 output-format=colorized
 reports=yes
 
