@@ -1,5 +1,4 @@
 {% load static %}
-{% load menu_tags %}
 
 <!DOCTYPE html>
 <html class="no-js">
@@ -27,19 +26,6 @@
     <body class="{% block body_class %}{%  endblock %}">
 
         <main>
-{% load menu_tags %}
-
-
-
-
-        {# MENU - start #}
-        <nav class="navbar navbar-expand-sm bg-primary navbar-dark d-flex justify-content-around">
-            <ul class="navbar-nav">
-                {% main_menu max_levels=3 template="menus/main_menu.html" %}
-            </ul>
-        </nav>
-
-        {# MENU - end #}
 
         {% block contentcontainer %}
 
