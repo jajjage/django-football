@@ -27,4 +27,4 @@ class Goal(TimeStampedModel):
     class Meta:
         verbose_name = _("Goal")
         verbose_name_plural = _("Goals")
-        ordering = ["match"]
+        ordering = ["-match"]
