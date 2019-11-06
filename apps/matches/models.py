@@ -30,6 +30,11 @@ class Match(TimeStampedModel):
         verbose_name_plural = _("Matches")
 
     def __str__(self):
+        return self.title
+
+    @property
+    def title(self):
+        """Return match name (depending on home/away)."""
         if self.home:
             return f"DES 1 - {self.opponent}"
         return f"{self.opponent} - DES 1"
