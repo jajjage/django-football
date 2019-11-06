@@ -22,7 +22,6 @@ TEMPLATES[0]['OPTIONS']['context_processors'] += [
     'core.context_processors.project',
 ]
 
-
 # CRISPY FORMS
 # ------------------------------------------------------------------------------
 # https://django-crispy-forms.readthedocs.io/en/latest/install.html#template-packs
@@ -40,3 +39,8 @@ REGISTRATION_ADMINS = ADMINS
 # https://www.django-rest-framework.org
 
 INSTALLED_APPS += ['rest_framework']
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAdminUser',
+    )
+}
