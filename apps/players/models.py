@@ -1,4 +1,6 @@
 """models"""
+import uuid as uuid_lib
+
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth import get_user_model
@@ -20,11 +22,15 @@ class Player(TimeStampedModel):
         verbose_name=_("user"),
         blank=True,
         null=True)
-
-    def __str__(self):
-        return self.name
+    uuid = models.UUIDField( # Used by the API
+        db_index=True,
+        default=uuid_lib.uuid4,
+        editable=False)
 
     @property
     def total_goals(self):
         """return number of scored goals"""
         return self.goals.all().count()
+
+    def __str__(self):
+        return self.name

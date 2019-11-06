@@ -1,4 +1,6 @@
 """models"""
+import uuid as uuid_lib
+
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
@@ -20,6 +22,10 @@ class Goal(TimeStampedModel):
         on_delete=models.PROTECT,
         related_name="goals",
         verbose_name=_("player"))
+    uuid = models.UUIDField( # Used by the API
+        db_index=True,
+        default=uuid_lib.uuid4,
+        editable=False)
 
     def __str__(self):
         return _("Goal by {} during {}").format(self.player, self.match)

@@ -1,4 +1,6 @@
 """models"""
+import uuid as uuid_lib
+
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
@@ -25,6 +27,10 @@ class Match(TimeStampedModel):
         related_name="matches",
         verbose_name=_("players"),
     )
+    uuid = models.UUIDField( # Used by the API
+        db_index=True,
+        default=uuid_lib.uuid4,
+        editable=False)
     class Meta:
         verbose_name = _("Match")
         verbose_name_plural = _("Matches")

@@ -1,42 +1,46 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% load i18n %}
 {% load crispy_forms_tags %}
 
-{% block head_title %}Login{% endblock %}
+{% block title %}{% trans "Log in" %}{% endblock %}
 
 {% block content %}
-    <div class="content-container medium--top medium--bottom" id="login_register">
-        <div class="container">
-            <div class="row">
-                {% if request.user.is_authenticated %}
-                    <p>U bent al ingelogd. Als u met een andere account in wilt loggen, dient u eerst <a href="{% url 'logout' %}">uit te loggen.</a></p>
-                {% else %}
-                    <div class="col-6 login-form">
-                        
-                        <h2>Inloggen voor bestaande cursisten</h2>
-                        
-                        <form method="post" novalidate action="">
-                            {% csrf_token %}
-                            {{ login_form|crispy }}
-                            <button type="submit">Inloggen voor bestaande cursisten</button>
-                        </form>
-                        
-                        <a href="{% url 'password_reset' %}">Wachtwoord vergeten?</a>
-                        
-                    </div>
-                    <div class="col-6 registration-form">
-                        
-                        <h2>Registreren voor nieuwe cursisten</h2>
-                        
-                        <form method="post" novalidate action="">
-                            {% csrf_token %}
-                            {{ registration_form|crispy }}
-                            <button type="submit">Registreren voor nieuwe cursisten</button>
-                        </form>
-                        
-                    </div>
-                {% endif %}
-            </div>
-        </div>
-    </div>
-{% endblock content %}
+<h1>Login</h1>
+<form method="post" action="">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <input type="submit" value="{% trans 'Log in' %}" />
+    <input type="hidden" name="next" value="{{ next }}" />
+</form>
+
+<p>{% trans "Forgot your password?" %} <a href="{% url 'password_reset' %}">{% trans "Reset it" %}</a>.</p>
+{% endblock %}
+
+
+{% comment %}
+**registration/login.html**
+
+It's your responsibility to provide the login form in a template called
+registration/login.html by default. This template gets passed four
+template context variables:
+
+``form``
+    A Form object representing the login form. See the forms
+    documentation for more on Form objects.
+
+``next``
+    The URL to redirect to after successful login. This may contain a
+    query string, too.
+
+``site``
+    The current Site, according to the SITE_ID setting. If you don't
+    have the site framework installed, this will be set to an instance
+    of RequestSite, which derives the site name and domain from the
+    current HttpRequest.
+
+``site_name``
+    An alias for site.name. If you don't have the site framework
+    installed, this will be set to the value of
+    request.META['SERVER_NAME']. For more on sites, see The
+    "sites" framework.
+{% endcomment %}

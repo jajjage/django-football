@@ -42,5 +42,11 @@ INSTALLED_APPS += ['rest_framework']
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAdminUser',
-    )
+    ),
 }
+
+# YET ANOTHER SWAGGER GENERATOR
+# ------------------------------------------------------------------------------
+# https://drf-yasg.readthedocs.io
+
+INSTALLED_APPS += ['drf_yasg']

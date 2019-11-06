@@ -19,7 +19,9 @@ disable=
     RP0801
 
 [BASIC]
-good-names=UserModel
+good-names=
+    UserModel,
+    router,
 
 [TYPECHECK]
 
