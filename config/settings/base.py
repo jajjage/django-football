@@ -22,54 +22,6 @@ TEMPLATES[0]['OPTIONS']['context_processors'] += [
     'core.context_processors.project',
 ]
 
-# WAGTAIL
-# ------------------------------------------------------------------------------
-# http://docs.wagtail.io/en/v2.1.1/advanced_topics/settings.html
-
-WAGTAIL_APPS = [
-    'wagtail.contrib.forms',
-    'wagtail.contrib.redirects',
-    'wagtail.contrib.modeladmin',
-    'wagtail.contrib.routable_page',
-    'wagtail.contrib.search_promotions',
-    'wagtail.contrib.settings',
-    'wagtail.embeds',
-    'wagtail.sites',
-    'wagtail.users',
-    'wagtail.snippets',
-    'wagtail.documents',
-    'wagtail.images',
-    'wagtail.search',
-    'wagtail.admin',
-    'wagtail.core',
-    'modelcluster',
-    'taggit',
-
-    'wagtailautocomplete',
-    'condensedinlinepanel',
-    'wagtailmenus',
-]
-WAGTAIL_MIDDLEWARE = [
-    'wagtail.core.middleware.SiteMiddleware',
-    'wagtail.contrib.redirects.middleware.RedirectMiddleware',
-]
-INSTALLED_APPS = WAGTAIL_APPS + INSTALLED_APPS
-MIDDLEWARE += WAGTAIL_MIDDLEWARE
-WAGTAIL_SITE_NAME = env('PROJECT_SLUG')
-WAGTAIL_APPEND_SLASH = True
-WAGTAIL_GRAVATAR_PROVIDER_URL = None
-WAGTAILIMAGES_MAX_UPLOAD_SIZE = 20 * 1024 * 1024  # i.e. 20MB
-WAGTAIL_PASSWORD_MANAGEMENT_ENABLED = True
-WAGTAIL_PASSWORD_RESET_ENABLED = True
-WAGTAILUSERS_PASSWORD_ENABLED = True
-WAGTAILUSERS_PASSWORD_REQUIRED = True
-TAGGIT_CASE_INSENSITIVE = True
-WAGTAIL_AUTO_UPDATE_PREVIEW = True
-WAGTAIL_USAGE_COUNT_ENABLED = True
-WAGTAILIMAGES_FEATURE_DETECTION_ENABLED = True
-# WAGTAIL_USER_CUSTOM_FIELDS = ['user_type', 'logo']
-TEMPLATES[0]['OPTIONS']['context_processors'].append('wagtailmenus.context_processors.wagtailmenus')
-TEMPLATES[0]['OPTIONS']['context_processors'].append('wagtail.contrib.settings.context_processors.settings')
 
 # CRISPY FORMS
 # ------------------------------------------------------------------------------

@@ -7,7 +7,6 @@ pipdeptree==0.13.2  # https://github.com/naiquevin/pipdeptree
 
 # Django
 # ------------------------------------------------------------------------------
-Django==2.2.*
 django-environ==0.4.5  # https://github.com/joke2k/django-environ
 django-extensions==2.2.3  # https://github.com/django-extensions/django-extensions
 django-debug-toolbar==2.0  # https://github.com/jazzband/django-debug-toolbar
