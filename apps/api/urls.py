@@ -4,7 +4,6 @@ from rest_framework.urlpatterns import format_suffix_patterns
 
 from .views import TopscorerList, PlayerDetail, MatchList
 
-app_name = 'players'
 
 urlpatterns = [
     path("players/", TopscorerList.as_view(), name="topscorers"),
