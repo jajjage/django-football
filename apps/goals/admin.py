@@ -1,17 +1,8 @@
 """admin"""
-from wagtail.contrib.modeladmin.options import (ModelAdmin, modeladmin_register)
+from django.contrib import admin
 
 from .models import Goal
 
-
-class GoalAdmin(ModelAdmin):
+@admin.register(Goal)
+class GoalAdmin(admin.ModelAdmin):
     """BaseAdmin for NamedAtrributes"""
-    model = Goal
-    menu_icon = 'snippet'
-    menu_order = 1000
-    list_display = [
-        "__str__",
-        "player",
-        "match",
-    ]
-modeladmin_register(GoalAdmin)

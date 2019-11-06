@@ -1,17 +1,9 @@
 """admin"""
-from wagtail.contrib.modeladmin.options import (ModelAdmin, modeladmin_register)
+from django.contrib import admin
 
 from .models import Match
 
 
-class MatchAdmin(ModelAdmin):
+@admin.register(Match)
+class MatchAdmin(admin.ModelAdmin):
     """BaseAdmin for NamedAtrributes"""
-    model = Match
-    menu_icon = 'snippet'
-    menu_order = 1000
-    list_display = [
-        "__str__",
-        "date",
-        "score",
-    ]
-modeladmin_register(MatchAdmin)

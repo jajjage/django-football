@@ -14,7 +14,6 @@ urlpatterns = [
     path("", include("matches.urls")),
     path("goals/", include("goals.urls")),
     path("api/", include("api.urls")),
-    path("wagtail/", include("blog.urls")),
 ]
 
 if settings.DEBUG_TOOLBAR:

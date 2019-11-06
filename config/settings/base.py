@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 from .defaults import *
 
 INSTALLED_APPS += [
-    "blog",
     "core",
     "users",
     "matches",
@@ -79,13 +78,6 @@ TEMPLATES[0]['OPTIONS']['context_processors'].append('wagtail.contrib.settings.c
 INSTALLED_APPS = ['crispy_forms'] + INSTALLED_APPS
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 CRISPY_FAIL_SILENTLY = not DEBUG
-
-# DJANGO-REGISTRATION-REDUX
-# ------------------------------------------------------------------------------
-# https://django-registration-redux.readthedocs.io/en/latest/
-ACCOUNT_ACTIVATION_DAYS = 7
-# should be above django.contrib.admin
-INSTALLED_APPS = ['registration'] + INSTALLED_APPS
 
 INCLUDE_AUTH_URLS = False
 INCLUDE_REGISTER_URL = False # using custom View
