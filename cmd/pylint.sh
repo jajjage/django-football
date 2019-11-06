@@ -4,6 +4,7 @@ GREEN='\033[0;32m'
 NOCOLOR='\033[0m'
 
 clear
+echo "PYLINT"
 touch apps/__init__.py
 python $(which pylint) --rcfile=.pylintrc apps/
 exit_code=$? 
