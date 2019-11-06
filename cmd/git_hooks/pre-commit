@@ -4,4 +4,8 @@
 cmd/pylint.sh
 exit_code=$?
 
+if [ "$exit_code" -eq "0" ]; then
+   echo
+   echo "COMMIT"
+fi
 exit $exit_code
