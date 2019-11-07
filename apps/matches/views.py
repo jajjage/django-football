@@ -1,25 +1,17 @@
 """views"""
 from django.views.generic.detail import DetailView
-
-from core.views import BaseView
+from django.views.generic.list import ListView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import Match
 
 
-class MatchListView(BaseView):
-    """view for listing matches"""
-    template_name = "matches/matches_list.html"
-
-    def get_context(self):
-        """context"""
-        return {
-            "matches": Match.objects.all(),
-        }
-
+class MatchListView(LoginRequiredMixin, ListView):
+    """View for listing matches"""
+    model = Match
 
 class MatchDetailView(DetailView):
     """view for listing matches"""
-    template_name = "matches/matches_detail.html"
     model = Match
 
     def get_context_data(self, **kwargs):
