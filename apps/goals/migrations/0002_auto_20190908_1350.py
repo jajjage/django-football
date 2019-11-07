@@ -8,6 +8,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('goals', '0001_initial'),
+        ('players', '0001_initial'),
     ]
 
     operations = [
