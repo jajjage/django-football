@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% load i18n %}
 
-{% block title %}Wedstrijden{% endblock title %}
+{% block title %}Football{% endblock title %}
 
 {% block content %}
-    <h1>Wedstrijden</h1>
+    <h1>{% trans "Matches" %}</h1>
     
     <div class="list-group">
         {% for match in matches %}
@@ -12,6 +12,8 @@
                 {{ match }}
                 <span class="badge badge-primary badge-pill">{{ match.score }}</span>
             </a>
+        {% empty %}
+            {% trans "No registered matches yet." %}
         {% endfor %}
     </div>
     
