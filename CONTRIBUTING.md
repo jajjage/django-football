@@ -7,7 +7,7 @@ Please note we have a code of conduct, please follow it in all your interactions
 
 ## Pull Request Process
 
-1. Make sure your code passes all tests style checks. You can run `./manage.py test` and `cmd/pylint.sh` to check your code.
+1. Make sure your code passes all tests and style checks. You can run `./manage.py test` and `cmd/pylint.sh` to check your code.
 
 ## Code of Conduct
 
