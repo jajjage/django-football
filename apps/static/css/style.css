@@ -1,3 +1,15 @@
 .contentblock {
     margin-top: 1rem
 }
+
+a {
+    color: #054f99;
+  }
+
+a:hover {
+color: #032e58;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #054f99 !important;
+}
