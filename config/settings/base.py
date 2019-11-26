@@ -50,3 +50,4 @@ REST_FRAMEWORK = {
 # https://drf-yasg.readthedocs.io
 
 INSTALLED_APPS += ['drf_yasg']
+
