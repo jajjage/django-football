@@ -1,18 +1,12 @@
 """views"""
 from django.db.models import Count
-
-from core.views import BaseView
+from django.views.generic.list import ListView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from players.models import Player
 
 
-class TopscorersView(BaseView):
-    """view for listing matches"""
-    template_name = "goals/topscorers.html"
-
-    def get_context(self):
-        """context"""
-        return {
-            "players": Player.objects.all()
-                       .annotate(num_goals=Count('goals'))
-                       .order_by("-num_goals")
-        }
+class TopscorersListView(LoginRequiredMixin, ListView):
+    """View for listing matches"""
+    queryset = Player.objects.all() \
+        .annotate(num_goals=Count('goals')) \
+        .order_by("-num_goals")

@@ -1,10 +1,10 @@
 """urls"""
 from django.urls import path
 
-from .views import TopscorersView
+from .views import TopscorersListView
 
 app_name = 'goals'
 
 urlpatterns = [
-    path("", TopscorersView.as_view(), name="topscorers"),
+    path("", TopscorersListView.as_view(), name="topscorers"),
 ]
