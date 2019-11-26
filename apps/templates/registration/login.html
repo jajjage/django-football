@@ -7,24 +7,8 @@
 {% block title %}{% trans "Login" %}{% endblock %}
 
 {% block content %}
-{% comment %} <div class="text-center">
-    <img class="text-center" src="{% static 'images' %}/club-logo.png" alt="club logo" width="100" height="100">
-</div> {% endcomment %}
-{% comment %} <h1 class="text-center">DES Adamsnood</h1> {% endcomment %}
-
-{% comment %} <h1>Login</h1> 
-<form method="post" action="" novalidate>
-    {% csrf_token %}
-    {% form|crispy %}
-    <input type="submit" value="{% trans 'Log in' %}" />
-    <input type="hidden" name="next" value="{{ next }}" />
-</form>
-
-<p>{% trans "Forgot your password?" %} <a href="{% url 'password_reset' %}">{% trans "Reset it" %}</a>.</p>
-{% endcomment %}
 
 <div class="login-form">
-
     <form method="post" action="" novalidate>
         <div class="text-center">
             <img src="{% static 'images' %}/club-logo.png" alt="club logo" width="100" height="100">
