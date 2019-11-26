@@ -2,7 +2,6 @@
 
 from django.conf import settings
 from django.urls import path, include
-
 from django.contrib import admin
 
 urlpatterns = [
@@ -10,9 +9,8 @@ urlpatterns = [
     path("rosetta/", include("rosetta.urls")),
 
     path("account/", include("django.contrib.auth.urls")),
-
-    path("", include("matches.urls")),
-    path("goals/", include("goals.urls")),
+    path("matches", include("matches.urls")),
+    path("goals", include("goals.urls")),
     path("api/", include("api.urls")),
 ]
 
