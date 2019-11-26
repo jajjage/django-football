@@ -2,10 +2,10 @@
 init-hook='import sys; sys.path.append("."); sys.path.append("apps/")'
 load-plugins=pylint_django
 ignore=migrations,settings
+ignore-patterns=tests.py
 
 [MESSAGES CONTROL]
 disable=
-    too-many-ancestors,
     fixme,
     # SKIP SOME REPORTS
     R0901,
