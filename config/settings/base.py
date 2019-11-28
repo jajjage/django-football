@@ -44,10 +44,3 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAdminUser',
     ),
 }
-
-# YET ANOTHER SWAGGER GENERATOR
-# ------------------------------------------------------------------------------
-# https://drf-yasg.readthedocs.io
-
-INSTALLED_APPS += ['drf_yasg']
-
