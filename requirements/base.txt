@@ -4,3 +4,4 @@
 # ------------------------------------------------------------------------------
 Django==2.2.*
 django-crispy-forms==1.7.2  # https://github.com/django-crispy-forms/django-crispy-forms
+djangorestframework==3.10.3  # https://www.django-rest-framework.org/
